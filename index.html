@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bareysh – Consulting & Product Strategy</title>
+    <meta name="description" content="Principles-driven consulting and product strategy firm. Clarity, trust, and long-term thinking.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Subtle fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-fade-in-1 { animation-delay: 0.1s; }
+        .animate-fade-in-2 { animation-delay: 0.2s; }
+        .animate-fade-in-3 { animation-delay: 0.3s; }
+        .animate-fade-in-4 { animation-delay: 0.4s; }
+        .animate-fade-in-5 { animation-delay: 0.5s; }
+        .animate-fade-in-6 { animation-delay: 0.6s; }
+        
+        /* Hover effects */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
+        
+        /* Navigation */
+        nav a {
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #1f2937;
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            background-color: #1f2937;
+            color: #f9fafb;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background-color: #111827;
+            box-shadow: 0 10px 30px rgba(31, 41, 55, 0.15);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #1f2937;
+            border: 1.5px solid #d1d5db;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #1f2937;
+            color: #1f2937;
+        }
+        
+        /* Cards */
+        .principle-card {
+            padding: 32px;
+            border-radius: 8px;
+            background-color: #fafbfc;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .principle-card:hover {
+            border-color: #1f2937;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Section spacing */
+        section {
+            padding: 80px 20px;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 20px;
+            }
+        }
+        
+        /* SVG icon styles */
+        .icon-svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+        }
+        
+        /* Scroll observer animation trigger */
+        .scroll-reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Form styles */
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #1f2937;
+            box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+        }
+        
+        /* Hero gradient subtle */
+        .hero-gradient {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight">Bareysh</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#principles" class="text-sm font-medium text-gray-600 hover:text-gray-900">Principles</a>
+                <a href="#services" class="text-sm font-medium text-gray-600 hover:text-gray-900">What We Do</a>
+                <a href="#vision" class="text-sm font-medium text-gray-600 hover:text-gray-900">Vision</a>
+                <a href="#approach" class="text-sm font-medium text-gray-600 hover:text-gray-900">Approach</a>
+                <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-600 hover:text-gray-900" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient pt-40 pb-32">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-6xl md:text-7xl font-bold tracking-tight mb-6 animate-fade-in animate-fade-in-1">
+                Principles over process.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in animate-fade-in-2">
+                Clear thinking and long-term strategy for products that matter.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animate-fade-in-3">
+                <a href="#contact" class="btn-primary">Start a Conversation</a>
+                <a href="#services" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Principles Section -->
+    <section id="principles" class="bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16 text-center">
+                <h2 class="text-5xl font-bold mb-4 scroll-reveal">Core Principles</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-reveal">
+                    How we think. How we work. What we believe matters.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Clarity -->
+                <div class="principle-card scroll-reveal hover-lift">
+                    <svg class="icon-svg text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Clarity over Complexity</h3>
+                    <p class="text-gray-600">Simple principles. Direct communication. No jargon, no noise.</p>
+                </div>
+                
+                <!-- Long-term Thinking -->
+                <div class="principle-card scroll-reveal hover-lift">
+                    <svg class="icon-svg text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Long-term Thinking</h3>
+                    <p class="text-gray-600">Beyond quarterly metrics. Building things that endure.</p>
+                </div>
+                
+                <!-- Engineering Discipline -->
+                <div class="principle-card scroll-reveal hover-lift">
+                    <svg class="icon-svg text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Engineering Discipline</h3>
+                    <p class="text-gray-600">Rigor in thinking. Systems-first approach. Sustainable design.</p>
+                </div>
+                
+                <!-- Ethical Growth -->
+                <div class="principle-card scroll-reveal hover-lift">
+                    <svg class="icon-svg text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Ethical Growth</h3>
+                    <p class="text-gray-600">Impact that matters. Growth aligned with values.</p>
+                </div>
+                
+                <!-- Quiet Excellence -->
+                <div class="principle-card scroll-reveal hover-lift">
+                    <svg class="icon-svg text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0m-.5 0h.008v.008h-.008z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Quiet Excellence</h3>
+                    <p class="text-gray-600">Work speaks louder than words. No excessive noise.</p>
+                </div>
+                
+                <!-- Transparency -->
+                <div class="principle-card scroll-reveal hover-lift">
+                    <svg class="icon-svg text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Radical Transparency</h3>
+                    <p class="text-gray-600">Clear about tradeoffs, constraints, and what's possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What We Do Section -->
+    <section id="services" class="bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16 text-center">
+                <h2 class="text-5xl font-bold mb-4 scroll-reveal">What We Do</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-reveal">
+                    We guide companies through strategic decisions that shape the future of their products and organizations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Product & Systems Strategy -->
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-semibold mb-4">Product & Systems Strategy</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        We help you think deeply about what you're building, why it matters, and how it fits into your broader ecosystem. Not roadmaps. Not feature lists. Direction and clarity.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Strategic positioning and market fit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Systems architecture and integration planning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Product roadmap prioritization</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Technology & Architecture Guidance -->
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-semibold mb-4">Technology & Architecture Guidance</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        We advise on technical decisions that compound over time. From infrastructure design to technology choices—built on engineering discipline and long-term thinking.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Architecture reviews and recommendations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Technology stack evaluation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Scalability and resilience planning</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Operational & Process Design -->
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-semibold mb-4">Operational & Process Design</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        How your teams work shapes what they build. We help design operations and processes that enable clarity, reduce friction, and scale sustainably.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Org structure and team design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Decision-making frameworks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Process optimization and measurement</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Advisory & Thought Partnership -->
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-semibold mb-4">Advisory & Thought Partnership</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Sometimes you need an external perspective. We serve as strategic advisors to leadership, helping you think through complex decisions and navigate uncertainty.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Executive strategy sessions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Transformation and growth planning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gray-900 font-semibold mr-3">→</span>
+                            <span>Quarterly business reviews and counsel</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Vision Section -->
+    <section id="vision" class="bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-8 scroll-reveal">Our Vision</h2>
+            <div class="prose prose-lg text-gray-700 space-y-6 scroll-reveal">
+                <p class="text-xl leading-relaxed">
+                    We believe the best products emerge from clear thinking, not from moving fast and breaking things. The future belongs to companies that build with intention—that understand their constraints, respect their users, and think in decades rather than quarters.
+                </p>
+                <p class="text-xl leading-relaxed">
+                    Technology and business strategy should serve human flourishing. That requires discipline, humility, and a long view. It requires principles.
+                </p>
+                <p class="text-xl leading-relaxed text-gray-600">
+                    We're here to help you build that way.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How We Work Section -->
+    <section id="approach" class="bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16 text-center">
+                <h2 class="text-5xl font-bold mb-4 scroll-reveal">How We Work</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-reveal">
+                    Our approach is methodical, collaborative, and always focused on outcomes that matter.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Discover -->
+                <div class="text-center scroll-reveal">
+                    <div class="bg-gray-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-gray-800">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Discover</h3>
+                    <p class="text-gray-600">
+                        We listen, ask hard questions, and understand your context, constraints, and ambitions.
+                    </p>
+                </div>
+                
+                <!-- Analyze -->
+                <div class="text-center scroll-reveal">
+                    <div class="bg-gray-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-gray-800">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Analyze</h3>
+                    <p class="text-gray-600">
+                        Deep analysis. Systems thinking. We identify the levers that actually move the needle.
+                    </p>
+                </div>
+                
+                <!-- Design -->
+                <div class="text-center scroll-reveal">
+                    <div class="bg-gray-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-gray-800">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Design</h3>
+                    <p class="text-gray-600">
+                        Strategic recommendations. Clear roadmaps. Actionable frameworks tailored to you.
+                    </p>
+                </div>
+                
+                <!-- Partner -->
+                <div class="text-center scroll-reveal">
+                    <div class="bg-gray-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-gray-800">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Partner</h3>
+                    <p class="text-gray-600">
+                        Ongoing support. We stay engaged as you implement and evolve.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="bg-white">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-6 scroll-reveal">Let's Talk</h2>
+            <p class="text-lg text-gray-600 mb-12 scroll-reveal">
+                Whether you're exploring a new direction, stuck on a difficult problem, or looking to scale with intention—we'd like to hear from you.
+            </p>
+            
+            <form class="space-y-4 scroll-reveal" onsubmit="handleSubmit(event)">
+                <div>
+                    <input 
+                        type="text" 
+                        placeholder="Your name" 
+                        class="form-input" 
+                        required
+                        aria-label="Name"
+                    >
+                </div>
+                <div>
+                    <input 
+                        type="email" 
+                        placeholder="Your email" 
+                        class="form-input" 
+                        required
+                        aria-label="Email"
+                    >
+                </div>
+                <div>
+                    <textarea 
+                        placeholder="Tell us about your project or challenge" 
+                        class="form-input" 
+                        rows="5"
+                        required
+                        aria-label="Message"
+                    ></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full">Send Message</button>
+                <p class="text-sm text-gray-500">
+                    No spam, no automated responses. We'll read this and get back to you within 48 hours.
+                </p>
+            </form>
+            
+            <div class="mt-12 pt-12 border-t border-gray-200">
+                <p class="text-gray-600 mb-2">Or reach out directly:</p>
+                <a href="mailto:hello@bareysh.com" class="text-lg font-semibold text-gray-900 hover:text-gray-600 transition">hello@bareysh.com</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <p class="text-lg font-semibold text-white mb-4 md:mb-0">Bareysh</p>
+                <div class="flex space-x-6">
+                    <a href="mailto:hello@bareysh.com" class="hover:text-white transition text-sm">Email</a>
+                    <a href="#" class="hover:text-white transition text-sm">LinkedIn</a>
+                    <a href="#" class="hover:text-white transition text-sm">Twitter</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-sm">
+                    © <span id="year"></span> Bareysh. All rights reserved.
+                </p>
+                <p class="text-sm mt-2 text-gray-600">
+                    Principles over process. Long-term thinking, always.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('expanded');
+        }
+        
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Create mailto link with form data
+            const name = form.querySelector('input[type="text"]').value;
+            const email = form.querySelector('input[type="email"]').value;
+            const message = form.querySelector('textarea').value;
+            
+            const subject = `Bareysh Inquiry from ${name}`;
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            
+            // Fallback: show confirmation message
+            alert('Thank you for your message. We'll be in touch within 48 hours.');
+            form.reset();
+            
+            // In production, you would send this to a backend service
+            console.log('Form submission:', { name, email, message });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        document.querySelectorAll('nav').forEach(nav => {
+                            nav.classList.remove('expanded');
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
